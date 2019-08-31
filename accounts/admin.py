@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Member
 
 
+# helps to add users easier in admin
 class MemberInLine(admin.StackedInline):
     model = Member
     can_delete = False
