@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('dict/', include('dict.urls', namespace='dict')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 
 ]
