@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyVocab</title>
+</head>
+<body bgcolor="#7fffd4">
+menu :
+<a href="{% url 'home' %}">Easyvocab</a>
+<a href="{% url 'dict:index' %}">Dictionary</a>
+accounts:
+<a href="{% url 'home' %}">SignUp</a>
+<a href="{% url 'dict:index' %}">Login</a>
+<a href="{% url 'home' %}">Logout</a>
+
+
+
+
+<center>
+{% block content %}
+    <h1>Welcome to Easyvocab</h1>
+{% endblock %}
+</center>
+</body>
+</html>
