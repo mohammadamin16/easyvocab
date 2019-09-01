@@ -8,11 +8,15 @@
 menu :
 <a href="{% url 'home' %}">Easyvocab</a>
 <a href="{% url 'dict:index' %}">Dictionary</a>
+<br>
 accounts:
-<a href="{% url 'home' %}">SignUp</a>
-<a href="{% url 'dict:index' %}">Login</a>
-<a href="{% url 'home' %}">Logout</a>
-
+{% if user.is_authenticated %}
+    <a href="{% url 'accounts:logout' %}">Logout</a>
+    hello {{ user.get_username }}
+{% else %}
+    <a href="{% url 'home' %}">SignUp</a>
+    <a href="{% url 'accounts:login' %}">Login</a>
+{% endif %}
 
 
 
