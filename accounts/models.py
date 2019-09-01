@@ -8,6 +8,8 @@ from django.db import models
 
 
 # this is my customized User Model
+from django.utils import timezone
+
 
 class UserManager(BaseUserManager):
 
@@ -45,6 +47,23 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=40, unique=True)
     display_name = models.CharField(max_length=140)
     bio = models.CharField(max_length=140, blank=True, default="")
-    avatar = models.ImageField(blank=)
+    avatar = models.ImageField(blank=True, null=True)
+    date_joined = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ["display_name", "username"]
+
+    def __str__(self):
+        return '@{}'.format(self.username)
+
+    def get_short_name(self):
+        return self.display_name
+
+    def get_long_name(self):
+        return "{} (@{})".format(self.display_name, self.username)
 
 
