@@ -19,9 +19,14 @@ accounts:
     <a href="{% url 'accounts:login' %}">Login</a>
 {% endif %}
 
+<br>
+
+quiz:
+<a href="{% url 'quiz:test' %}">Test</a>
 
 
-<div  style="padding: 100px">
+
+<div style="padding: 100px">
 {% block content %}
     <h1>Welcome to Easyvocab</h1>
 {% endblock %}
