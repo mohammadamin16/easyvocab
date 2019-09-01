@@ -21,7 +21,9 @@ def test(request):
             qpk = request.POST.get('q')
             q = Question.objects.get(pk=qpk)
             print(q.answer)
-            if form.cleaned_data['answer'] == q.answer :
+            if form.cleaned_data['answer'] == q.answer:
+                user = request.user
+                # user.
                 return HttpResponseRedirect(reverse('quiz:correct'))
             else:
                 return HttpResponseRedirect(reverse('quiz:wrong'))
