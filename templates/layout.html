@@ -10,20 +10,21 @@ menu :
 <a href="{% url 'dict:index' %}">Dictionary</a>
 <br>
 accounts:
+
 {% if user.is_authenticated %}
     <a href="{% url 'accounts:logout' %}">Logout</a>
     hello {{ user.get_username }}
 {% else %}
-    <a href="{% url 'home' %}">SignUp</a>
+    <a href="{% url 'accounts:signup' %}">SignUp</a>
     <a href="{% url 'accounts:login' %}">Login</a>
 {% endif %}
 
 
 
-<center>
+<div  style="padding: 100px">
 {% block content %}
     <h1>Welcome to Easyvocab</h1>
 {% endblock %}
-</center>
+</div>
 </body>
 </html>
