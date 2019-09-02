@@ -83,6 +83,8 @@ fabric.properties
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+__pycache__
+/__pycache__
 *.py[cod]
 *$py.class
 
@@ -109,3 +111,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+#other things
+.directory

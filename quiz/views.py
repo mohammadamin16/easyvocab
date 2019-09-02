@@ -22,8 +22,8 @@ def test(request):
             q = Question.objects.get(pk=qpk)
             print(q.answer)
             if form.cleaned_data['answer'] == q.answer:
-                user = request.user
-                # user.
+                request.user.point += 1
+                request.user.save()
                 return HttpResponseRedirect(reverse('quiz:correct'))
             else:
                 return HttpResponseRedirect(reverse('quiz:wrong'))
