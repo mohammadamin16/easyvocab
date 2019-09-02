@@ -1,8 +1,10 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib.auth import get_user_model
+
+from accounts.forms import SignUpForm
 
 
 class Login(LoginView):
@@ -23,9 +25,15 @@ class Logout(LogoutView):
         return reverse('home')
 
 
-class SignUp(CreateView):
-    form_class = UserCreationForm
+class SignUp(FormView):
+    form_class = SignUpForm
+    fields = ['email', 'username', 'password', 'display_name']
     template_name = 'accounts/signup.html'
+
+    def form_valid(self, form):
+        form.save_user()
+        return super(SignUp, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('accounts:login')
+

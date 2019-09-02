@@ -1,19 +1,12 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as UserBaseAdmin
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
+from django.conf import settings
 
-# from .models import Member
-#
-#
-# # helps to add users easier in admin
-# class MemberInLine(admin.StackedInline):
-#     model = Member
-#     can_delete = False
-#
-#
-# class UserAdmin(UserBaseAdmin):
-#     inlines = (MemberInLine, )
-#
-#
-# # admin.site.unregister(User)
-# # admin.site.register(User, UserAdmin)
+
+admin.site.register(get_user_model())
+
+
+
+
+
