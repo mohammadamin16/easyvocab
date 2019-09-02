@@ -51,9 +51,9 @@
   </div>
 </nav>
 
-<div class="container text-center">
+<div class="container text-center auto-mx">
 {% block content %}
-    <h1 class="text-center">Welcome to Easyvocab</h1>
+    <h1>Welcome to Easyvocab</h1>
     <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-primary btn-lg ">Login</button></a>
     <a href="{% url 'accounts:signup' %}"><button type="button" class="btn btn-outline-secondary btn-lg">Sign Up</button></a>
 {% endblock %}

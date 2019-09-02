@@ -4,14 +4,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils import log
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from quiz import forms
-from quiz.models import Question
+from quiz.models import Question, Quiz
 
 
-def index(request):
-    return HttpResponse("Hi Quiz")
+class QuizList(ListView):
+    model = Quiz
+    context_object_name = 'quizzes'
+    template_name = 'quiz/index.html'
 
 
 def test(request):
