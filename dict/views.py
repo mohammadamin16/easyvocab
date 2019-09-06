@@ -1,5 +1,9 @@
+
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.urls import reverse
+from django.views.generic import CreateView, FormView
+
 from . import forms
 from .models import Word
 
@@ -23,3 +27,16 @@ def index(request):
 
     form = forms.SearchboxForm()
     return render(request, 'dict/index.html', dict(form=form))
+
+
+class AddWord(FormView):
+    model = Word
+    form_class = forms.AddWordForm
+    template_name = 'dict/add_word.html'
+
+    def form_valid(self, form):
+        form.add_word()
+        return super(AddWord, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('dict:index')

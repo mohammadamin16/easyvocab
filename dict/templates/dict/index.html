@@ -1,12 +1,12 @@
-{% extends 'layout.html' %}
+{% extends 'dict/dict_base_layout.html' %}
 {% load bootstrap %}
 {% block content %}
-    <div class="container">
+    <div class="container my-3">
     <h3>Dictionary</h3>
     <form action="" method="post">
         {{ form|bootstrap }}
         {% csrf_token %}
-        <input type="submit" class="btn btn-secondary">
+        <input type="submit" class="btn btn-secondary" value="Search">
     </form>
 
     <hr>
@@ -15,7 +15,7 @@
         <div class="alert alert-primary" role="alert">
             We don't know that word yet!<br>
             but if you want to make our project better
-            <a href="#" class="alert-link">you can add it here!</a>
+            <a href="{% url 'dict:add-word' %}" class="alert-link">you can add it here!</a>
         </div>
 
     {% else %}
