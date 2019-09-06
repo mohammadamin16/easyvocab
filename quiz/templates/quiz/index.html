@@ -1,15 +1,16 @@
 {% extends 'quiz/quiz_base_template.html' %}
+
 {% block content %}
-    <p class="h1">select a quiz:</p>
+<p class="h1">select a quiz:</p>
 {% for quiz in quizzes %}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{quiz.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">points : {{ quiz.get_points }}</h6>
-        <p class="card-text">the number of questions in this quiz is : {{ quiz.get_number_of_questions }}</p>
-        <a href="#" class="card-link">Go To Quiz!</a>
-  </div>
-</div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{quiz.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">points : {{ quiz.get_points }}</h6>
+            <p class="card-text">the number of questions in this quiz is : {{ quiz.get_number_of_questions }}</p>
+            <a href="{% url 'quiz:quiz-view' quiz.pk %}" class="card-link">Go To Quiz!</a>
+        </div>
+    </div>
 {% endfor %}
 
 {%  endblock %}

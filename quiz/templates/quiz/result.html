@@ -1,0 +1,12 @@
+{% extends 'quiz/quiz_base_template.html' %}
+{% block content %}
+
+    <h1>Result:</h1>
+
+    <h6>the point you could get in this quiz is : {{ points }}</h6>
+
+    <a href="{% url 'quiz:index' %}">
+        <button class="btn btn-info">Back</button>
+    </a>
+
+{% endblock %}

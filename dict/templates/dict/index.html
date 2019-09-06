@@ -1,8 +1,9 @@
 {% extends 'layout.html' %}
+{% load bootstrap %}
 {% block content %}
     <h3>Dictionary</h3>
     <form action="" method="post">
-        {{ form.as_p }}
+        {{ form|bootstrap }}
         {% csrf_token %}
         <input type="submit">
     </form>

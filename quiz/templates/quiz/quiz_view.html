@@ -1,0 +1,41 @@
+{%  extends 'quiz/quiz_base_template.html' %}
+{% load quiz_extras %}
+{% block content %}
+    <p class="h2">Quiz title : {{ quiz.title }}</p>
+    <p class="h4">{{ quiz.questions.all|get:QO|get_title }}</p>
+    <form method="post" action="{% url 'quiz:quiz-view' quiz_number %}">
+        <div id="ck-button" class="btn btn-primary">
+        <label for="accept">
+            <input id="accept" name='ans' type="radio" value="{{ choice1 }}" required="required" class="btn btn-primary" />
+            <span>{{ choice1 }}</span>
+        </label>
+        </div>
+
+        <div id="ck-button" class="btn btn-primary">
+        <label for="accept">
+            <input id="accept" name='ans' type="radio" value="{{ choice2 }}" required="required" class="btn btn-primary" />
+            <span>{{ choice2 }}</span>
+        </label>
+        </div>
+
+        <div id="ck-button" class="btn btn-primary">
+        <label for="accept">
+            <input id="accept" name='ans' type="radio" value="{{ choice3 }}" required="required" class="btn btn-primary" />
+            <span>{{ choice3 }}</span>
+        </label>
+        </div>
+
+        <div id="ck-button" class="btn btn-primary">
+        <label for="accept">
+            <input id="accept" name='ans' type="radio" value="{{ choice4 }}" required="required" class="btn btn-primary" />
+            <span>{{ choice4 }}</span>
+        </label>
+        </div>
+
+        <br>
+{#        <a href="{% url 'quiz:quiz-view' quiz_number %}?QO={{ QO|plus_one }}"> <button type="button" class="btn btn-success">Next</button> </a>#}
+        <input name="QO" value="{{ QO|plus_one }}" hidden>
+        <input type="submit" value="Next" class="btn btn-success">
+        {% csrf_token %}
+    </form>
+{% endblock %}

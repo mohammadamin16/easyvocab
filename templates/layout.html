@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>{%  block title %} EasyVocab {% endblock %}</title>
 </head>
@@ -40,7 +40,7 @@
         <a class="nav-link" href="{% url 'dict:index' %}">Dictionary</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'quiz:test' %}">Quiz</a>
+        <a class="nav-link" href="{% url 'quiz:index' %}">Quiz</a>
       </li>
     </ul>
       {% if user.is_authenticated %}
