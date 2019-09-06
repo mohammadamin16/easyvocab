@@ -50,6 +50,7 @@
       <p class="form-inline my-2 my-lg-2">
         point : {{ user.point }}
     </p>
+          <a href="{% url 'accounts:profile' user.username %}"><img class="rounded ml-3" src="{% url 'accounts:get-avatar' user.username %}" width="35" alt="Avatar"></a>
       {% endif %}
   </div>
 </nav>
