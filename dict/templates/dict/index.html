@@ -1,30 +1,37 @@
 {% extends 'layout.html' %}
 {% load bootstrap %}
 {% block content %}
+    <div class="container">
     <h3>Dictionary</h3>
     <form action="" method="post">
         {{ form|bootstrap }}
         {% csrf_token %}
-        <input type="submit">
+        <input type="submit" class="btn btn-secondary">
     </form>
+
     <hr>
-    <article style="background-color: bisque">
     {% if error %}
-        <h5>We don't know that word</h5>
+
+        <div class="alert alert-primary" role="alert">
+            We don't know that word yet!<br>
+            but if you want to make our project better
+            <a href="#" class="alert-link">you can add it here!</a>
+        </div>
+
     {% else %}
         <br>
-    Word        : {{ word }}
-    <br>
-        {%  if defi != '' %}
-    Definition  :  {{ defi }}
-    <br>
-        {% endif %}
-    Translation : {{ translation }}
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">word:</div>        : {{ word }}
     <br>
     {%  if defi != '' %}
-    Example : {{ example }}
-    {%  endif %}
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">Definition:</div>        : {{ defi }}
+    <br>
+        {% endif %}
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">Translation:</div>        : {{ translation }}
+    <br>
+    {%  if defi != '' %}
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">Example:</div>        : {{ example }}
+        {%  endif %}
     {% endif %}
-    </article>
 
+</div>
 {% endblock %}

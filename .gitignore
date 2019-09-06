@@ -85,6 +85,7 @@ fabric.properties
 __pycache__/
 __pycache__
 /__pycache__
+easyvocab/__pycache__
 *.py[cod]
 *$py.class
 
