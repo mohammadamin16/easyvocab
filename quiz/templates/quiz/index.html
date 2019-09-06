@@ -4,8 +4,8 @@
     <div class="container">
 <p class="h1 text-center">select a quiz:</p>
 {% for quiz in quizzes %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
+    <div class="card m-4" style="width: 18rem;">
+        <div class="card-body text-center">
             <h5 class="card-title">{{quiz.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">points : {{ quiz.get_points }}</h6>
             <p class="card-text">the number of questions in this quiz is : {{ quiz.get_number_of_questions }}</p>

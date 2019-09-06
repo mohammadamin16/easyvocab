@@ -6,7 +6,12 @@
     <form action="" method="post">
         {{ form|bootstrap }}
         {% csrf_token %}
-        <input type="submit" class="btn btn-secondary" value="Search">
+        <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-primary" value="Search">
+            </div>
+
+        </div>
     </form>
 
     <hr>
@@ -33,5 +38,9 @@
         {%  endif %}
     {% endif %}
 
+    <br>
+    <a href="{% url 'dict:add-word' %}">
+        <button class="btn btn-outline-secondary mt-5">Add Word</button>
+    </a>
 </div>
 {% endblock %}

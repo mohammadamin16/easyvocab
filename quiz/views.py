@@ -47,8 +47,8 @@ class QuizView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizView, self).get_context_data(**kwargs)
-        context['quiz_number'] = 1
-        self.request.session['quiz_number'] = 1
+        context['quiz_number'] = self.get_object().pk
+        self.request.session['quiz_number'] = context['quiz_number']
         try:
             context['QO'] = int(self.request.POST['QO'])
         except Exception as e:
