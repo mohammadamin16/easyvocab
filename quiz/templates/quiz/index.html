@@ -1,7 +1,8 @@
 {% extends 'quiz/quiz_base_template.html' %}
 
 {% block content %}
-<p class="h1">select a quiz:</p>
+    <div class="container">
+<p class="h1 text-center">select a quiz:</p>
 {% for quiz in quizzes %}
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -12,5 +13,5 @@
         </div>
     </div>
 {% endfor %}
-
+</div>
 {%  endblock %}

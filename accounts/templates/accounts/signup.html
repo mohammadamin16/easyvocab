@@ -1,10 +1,11 @@
 {% extends 'accounts/accounts_base_template.html' %}
 {% load bootstrap %}
 {% block content %}
+    <div class="container">
 <form  method="post">
     {{ form|bootstrap }}
     {% csrf_token %}
-    <input type="submit" value="Sign Up">
+    <input class="btn btn-primary" type="submit" value="Sign Up">
 </form>
+</div>
 {% endblock %}
->

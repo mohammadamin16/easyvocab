@@ -1,6 +1,7 @@
 {%  extends 'quiz/quiz_base_template.html' %}
 {% load quiz_extras %}
 {% block content %}
+    <div class="container text-center">
     <p class="h2">Quiz title : {{ quiz.title }}</p>
     <p class="h4">{{ quiz.questions.all|get:QO|get_title }}</p>
     <form method="post" action="{% url 'quiz:quiz-view' quiz_number %}">
@@ -38,4 +39,5 @@
         <input type="submit" value="Next" class="btn btn-success">
         {% csrf_token %}
     </form>
+    </div>
 {% endblock %}
