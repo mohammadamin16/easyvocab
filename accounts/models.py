@@ -8,6 +8,7 @@ from django.db import models
 
 
 # this is my customized User Model
+from django.urls import reverse
 from django.utils import timezone
 from django.http import FileResponse
 
@@ -67,3 +68,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_long_name(self):
         return "{} (@{})".format(self.display_name, self.username)
 
+    def get_absolute_url(self):
+        return reverse('accounts:profile', args=[self.username])

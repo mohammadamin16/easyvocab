@@ -54,7 +54,10 @@ def get_avatar(self, username):
     return FileResponse(open(img, 'rb'))
 
 
-# class EditProfile(UpdateView):
-#     model = get_user_model()
-#     fields = ['display_name', 'avatar']
-#     template_name =
+class EditProfile(UpdateView):
+    model = get_user_model()
+    fields = ['display_name', 'avatar', 'bio']
+    template_name = 'accounts/edit_profile.html'
+
+    def get_object(self, queryset=None):
+        return get_user_model().objects.get(username=self.kwargs['username'])

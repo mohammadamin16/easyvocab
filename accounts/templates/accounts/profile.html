@@ -17,6 +17,8 @@
     <br>
     <div class="badge badge-primary text-wrap">points:</div> {{ object.point }}
     <br>
-    <button class="btn btn-secondary mt-5">Edit Profile</button>
+    <a href="{% url 'accounts:edit-profile' object.username %}">
+        <button class="btn btn-secondary mt-5">Edit Profile</button>
+    </a>
 </div>
 {% endblock %}
