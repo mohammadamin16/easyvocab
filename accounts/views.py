@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import FileResponse
 from django.urls import reverse
-from django.views.generic import CreateView, TemplateView, FormView
+from django.views.generic import CreateView, TemplateView, FormView, DetailView, UpdateView
 from django.contrib.auth import get_user_model
 
 from accounts.forms import SignUpForm
@@ -37,3 +38,23 @@ class SignUp(FormView):
     def get_success_url(self):
         return reverse('accounts:login')
 
+
+class Profile(DetailView):
+    model = get_user_model()
+    context_object_name = 'object'
+    template_name = 'accounts/profile.html'
+
+    def get_object(self, queryset=None):
+        return get_user_model().objects.get(username=self.kwargs['username'])
+
+
+def get_avatar(self, username):
+    user = get_user_model().objects.get(username = username)
+    img = user.avatar.url
+    return FileResponse(open(img, 'rb'))
+
+
+# class EditProfile(UpdateView):
+#     model = get_user_model()
+#     fields = ['display_name', 'avatar']
+#     template_name =
