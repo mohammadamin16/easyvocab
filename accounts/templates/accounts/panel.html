@@ -15,16 +15,15 @@
       </div>
     </div>
 
-
     <div class="card mt-5">
           <div class="card-header bg-info">
             Words you looked for:
           </div>
           <div class="card-body">
-            <h5 class="card-title">Easy</h5>
-        <h5 class="card-title">Hello</h5>
+    {% for word in words %}
+            <h5 class="card-title">{{word}}</h5>
+    {% endfor %}
           </div>
         </div>
-
 </div>
 {% endblock %}

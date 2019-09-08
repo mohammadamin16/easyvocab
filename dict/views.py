@@ -1,4 +1,4 @@
-
+from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
@@ -15,6 +15,8 @@ def index(request):
             q = form.cleaned_data['searchbox']
             try:
                 word = Word.objects.get(word=q)
+                user = get_user_model().objects.get(username=request.user.username)
+                user.words.add(word)
             except Exception as e:
                 form = forms.SearchboxForm()
                 return render(request, 'dict/index.html', dict(form=form, error=True))
