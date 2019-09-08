@@ -49,7 +49,7 @@ class Profile(DetailView):
 
 
 def get_avatar(self, username):
-    user = get_user_model().objects.get(username = username)
+    user = get_user_model().objects.get(username=username)
     img = user.avatar.url
     return FileResponse(open(img, 'rb'))
 
@@ -61,3 +61,12 @@ class EditProfile(UpdateView):
 
     def get_object(self, queryset=None):
         return get_user_model().objects.get(username=self.kwargs['username'])
+
+
+class Panel(DetailView):
+    model = get_user_model()
+    template_name = 'accounts/panel.html'
+
+    def get_object(self, queryset=None):
+        user = get_user_model().objects.get(username=self.kwargs['username'])
+        return user

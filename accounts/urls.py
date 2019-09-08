@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/<username>', views.Profile.as_view(), name='profile'),
     path('edit_profile/<username>', views.EditProfile.as_view(), name='edit-profile'),
     path('<username>/avatar', views.get_avatar, name='get-avatar'),
+    path('panel/<username>', views.Panel.as_view(), name='panel'),
 ]
