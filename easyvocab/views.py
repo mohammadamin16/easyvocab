@@ -1,7 +1,13 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 
 # this is tha HomePage
+from django.urls import reverse
+
+
 def index(request):
-    return render(request, 'layout.html')
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('accounts:panel', kwargs=dict(username=request.user.username)))
+    else:
+        return render(request, 'layout.html')
