@@ -1,7 +1,8 @@
 {% extends 'accounts/accounts_base_template.html' %}
 {% load bootstrap %}
 {% block content %}
-<div class="container">
+<div class="container mt-3">
+    <p class="h1 text-center">Login :</p>
     <form  method="post">
         {{ form|bootstrap }}
         {% csrf_token %}

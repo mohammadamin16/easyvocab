@@ -2,41 +2,25 @@
 {% load quiz_extras %}
 {% block content %}
     <div class="container text-center">
-    <p class="h2">Quiz title : {{ quiz.title }}</p>
-    <p class="h4">{{ quiz.questions.all|get:QO|get_title }}</p>
+    <p class="h2 mt-3">Quiz title : {{ quiz.title }}</p>
+    <hr>
+        <p class="h4 mb-5">
+              <span class="badge badge-pill text-white bg-danger">{{ QO|plus_one }}</span>
+            {{ quiz.questions.all|get:QO|get_title }}
+        </p>
     <form method="post" action="{% url 'quiz:quiz-view' quiz_number %}">
-        <div id="ck-button" class="btn btn-primary">
+        {% for choice in choices %}
+        <div id="ck-button" class="btn btn-primary mx-3">
         <label for="accept">
-            <input id="accept" name='ans' type="radio" value="{{ choice1 }}" required="required" class="btn btn-primary" />
-            <span>{{ choice1 }}</span>
+            <input id="accept" name='ans' type="radio" value="{{ choice }}" required="required" class="btn btn-primary" />
+            <span>{{ choice }}</span>
         </label>
         </div>
-
-        <div id="ck-button" class="btn btn-primary">
-        <label for="accept">
-            <input id="accept" name='ans' type="radio" value="{{ choice2 }}" required="required" class="btn btn-primary" />
-            <span>{{ choice2 }}</span>
-        </label>
-        </div>
-
-        <div id="ck-button" class="btn btn-primary">
-        <label for="accept">
-            <input id="accept" name='ans' type="radio" value="{{ choice3 }}" required="required" class="btn btn-primary" />
-            <span>{{ choice3 }}</span>
-        </label>
-        </div>
-
-        <div id="ck-button" class="btn btn-primary">
-        <label for="accept">
-            <input id="accept" name='ans' type="radio" value="{{ choice4 }}" required="required" class="btn btn-primary" />
-            <span>{{ choice4 }}</span>
-        </label>
-        </div>
-
+        {% endfor %}
         <br>
-{#        <a href="{% url 'quiz:quiz-view' quiz_number %}?QO={{ QO|plus_one }}"> <button type="button" class="btn btn-success">Next</button> </a>#}
+
         <input name="QO" value="{{ QO|plus_one }}" hidden>
-        <input type="submit" value="Next" class="btn btn-success">
+        <input type="submit" value="Next" class="btn btn-success mt-5">
         {% csrf_token %}
     </form>
     </div>

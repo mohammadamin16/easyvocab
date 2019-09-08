@@ -1,7 +1,7 @@
 {% extends 'accounts/accounts_base_template.html' %}
 {% load bootstrap %}
 {% block content %}
-<div class="container">
+<div class="container mt-3">
     <p class="h1 text-center">Profile</p>
     <div class="text-center">
     <img class="rounded" src="{% url 'accounts:get-avatar' object.username  %}" width="100" class="img-fluid" alt="Avatar">

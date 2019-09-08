@@ -55,10 +55,7 @@ class QuizView(DetailView):
             context['QO'] = 0
 
         choices = self.get_object().questions.all()[context['QO']].choices.split(',')
-        context['choice1'] = choices[0]
-        context['choice2'] = choices[1]
-        context['choice3'] = choices[2]
-        context['choice4'] = choices[3]
+        context['choices'] = choices
         return context
 
 

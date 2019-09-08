@@ -57,10 +57,19 @@
 
 {#<div class="container text-center auto-mx">#}
 {% block content %}
-    <div class="container text-center">
-    <h1>Welcome to Easyvocab</h1>
-    <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-primary btn-lg ">Login</button></a>
-    <a href="{% url 'accounts:signup' %}"><button type="button" class="btn btn-outline-secondary btn-lg">Sign Up</button></a>
+    <div class="container text-center mt-3">
+        <p class="display-2"> Welcome to Easyvocab</p>
+
+    <div class="row">
+    <div class="col-sm-6">
+        <img src="{% static 'img/vocabulary.png' %}" class="rounded float-right" width="300" alt="Logo">
+    </div>
+    <div class="col-sm-6 m-auto">
+        <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-primary btn-lg w-50 ">Login</button></a>
+        <br>
+        <a href="{% url 'accounts:signup' %}"><button type="button" class="btn btn-outline-secondary btn-lg w-50">Sign Up</button></a>
+    </div>
+
     </div>
 {% endblock %}
 </div>
