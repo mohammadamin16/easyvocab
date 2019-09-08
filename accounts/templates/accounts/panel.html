@@ -8,10 +8,9 @@
         Quizzes you took:
       </div>
       <div class="card-body">
-        <h5 class="card-title">Vocab I</h5>
-        <p class="card-text">point : 8</p>
-        <h5 class="card-title">Vocab II</h5>
-        <p class="card-text">point : 4</p>
+        {% for quiz in quizzes %}
+          <h5 class="card-title">{{ quiz.title }}</h5>
+        {% endfor %}
       </div>
     </div>
 

@@ -74,5 +74,7 @@ class Panel(DetailView):
     def get_context_data(self, **kwargs):
         context = super(Panel, self).get_context_data(**kwargs)
         words = self.request.user.words.all()
+        quizzes = self.request.user.quizzes.all()
         context['words'] = words
+        context['quizzes'] = quizzes
         return context

@@ -76,12 +76,13 @@ class QuizResult(TemplateView):
             print(answers)
             if question.answer == answers[counter]:
                 points += question.difficulty
-        self.add_point_to_user(points)
+        self.update_user(points, quiz)
         return points
 
-    def add_point_to_user(self, point):
+    def update_user(self, point, quiz):
         user = self.request.user
         user.point += point
+        user.quizzes.add(quiz)
         user.save()
 
     def get(self, request, *args, **kwargs):
