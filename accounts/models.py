@@ -12,6 +12,10 @@ from django.urls import reverse
 from django.utils import timezone
 from django.http import FileResponse
 
+from dict.models import Word
+from quiz.models import Quiz
+
+
 class UserManager(BaseUserManager):
 
     def create_user(self, email, username, display_name, password):
@@ -53,6 +57,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     point = models.IntegerField(default=0)
+    quizzes = models.ManyToManyField(Quiz, blank=True)
+    words = models.ManyToManyField(Word, blank=True)
 
     objects = UserManager()
 
