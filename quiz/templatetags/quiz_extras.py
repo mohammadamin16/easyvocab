@@ -18,3 +18,7 @@ def get_title(question):
 def plus_one(number):
     return number+1
 
+
+@register.filter
+def is_empty(list):
+    return bool(len(list))

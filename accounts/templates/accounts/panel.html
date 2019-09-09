@@ -1,4 +1,5 @@
 {% extends 'accounts/accounts_base_template.html' %}
+{% load quiz_extras %}
 {% block content %}
 <div class="container">
     <p class="h1 text-center" >Panel</p>
@@ -8,6 +9,9 @@
         Quizzes you took:
       </div>
       <div class="card-body">
+      {% if quizzes.count == 0 %}
+                    <h5 class="card-title text-black-50 text-center">you never take any quiz.</h5>
+      {% else %}
         {% for quiz in quizzes %}
             <div class="row">
                 <div class="col-sm-6">
@@ -17,8 +21,8 @@
                     <a href="{% url 'quiz:quiz-view' quiz.pk %}" class="btn btn-primary">Re-take</a>
                 </div>
             </div>
-
         {% endfor %}
+      {% endif %}
       </div>
     </div>
 
@@ -27,6 +31,9 @@
             Words you looked for:
           </div>
           <div class="card-body">
+          {% if quizzes.count == 0 %}
+                    <h5 class="card-title text-black-50 text-center">there is not any search history.</h5>
+          {% else %}
     {% for word in words %}
         <div class="row">
             <div class="col-sm-6">
@@ -36,8 +43,8 @@
         <h5 class="card-title">{{ word.translation }}</h5>
             </div>
         </div>
-
     {% endfor %}
+    {% endif %}
         </div>
     </div>
 </div>
