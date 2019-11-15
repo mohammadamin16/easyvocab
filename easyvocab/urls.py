@@ -23,4 +23,5 @@ urlpatterns = [
     path('dict/', include('dict.urls', namespace='dict')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('quiz/', include('quiz.urls', namespace='quiz')),
+    path('connect/', include('connect.urls', namespace='connect')),
 ]

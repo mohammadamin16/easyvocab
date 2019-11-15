@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'accounts',
     'dict',
-    'quiz'
+    'quiz',
+    'connect'
 
 ]
 
@@ -129,4 +130,3 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
     ]
 AUTH_USER_MODEL = 'accounts.User'
-
