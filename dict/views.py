@@ -15,15 +15,19 @@ def index(request):
             q = form.cleaned_data['searchbox']
             try:
                 word = Word.objects.get(word=q)
-                user = get_user_model().objects.get(username=request.user.username)
-                user.words.add(word)
+                if str(request.user) == 'AnonymousUser':pass
+                else:
+                    user = get_user_model().objects.get(username=request.user.username)
+                    user.words.add(word)
             except Exception as e:
+                # raise e
                 form = forms.SearchboxForm()
                 return render(request, 'dict/index.html', dict(form=form, error=True))
             translation = word.translation
             defi = word.definition
             example = word.example
-
+            print('TEST')
+            print(request.user)
             return render(request, 'dict/index.html',
                           dict(form=form, word=word, translation=translation,example=example, defi=defi ))
 

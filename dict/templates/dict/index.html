@@ -5,6 +5,7 @@
     <h3>Dictionary</h3>
     <form action="" method="post">
         {{ form|bootstrap }}
+        <small id="searchHelp" class="form-text text-muted">Exmple: hello</small>
         {% csrf_token %}
         <div class="row">
         <div class="col">
